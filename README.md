@@ -3,7 +3,8 @@
 <img width="4375" height="1312" alt="stat_card" src="https://github.com/user-attachments/assets/80ab838d-40a6-48a0-9dc7-ce9c4e7d0856" />
 
 # Final Year Project | Aetherion VZ Alpha 400B
-### AI-Driven Clinical Decision Support Interface — B.Eng Computer Engineering (Honours), APU Malaysia
+
+### AI Powered Medical Ecosystem covering LLM for Reasoning, Retrieval Augmented Generation for answer accuracy, Convolutional Neural Networks for disease detection.  
 
 </div>
 
