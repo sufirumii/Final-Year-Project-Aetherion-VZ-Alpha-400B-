@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.svg" alt="Aetherion VZ Alpha 400B Banner" width="100%"/>
+
 
 # Final Year Project | Aetherion VZ Alpha 400B
 ### *AI-Driven Clinical Decision Support Interface — B.Eng Computer Engineering (Honours), APU Malaysia*
