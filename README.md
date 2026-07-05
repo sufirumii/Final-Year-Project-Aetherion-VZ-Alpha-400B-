@@ -1,8 +1,7 @@
 <div align="center">
 
-<img width="3750" height="937" alt="banner" src="https://github.com/user-attachments/assets/05ba3e24-8838-4194-9ed8-5d20d39c7149" />
+<img width="4375" height="1312" alt="stat_card" src="https://github.com/user-attachments/assets/80ab838d-40a6-48a0-9dc7-ce9c4e7d0856" />
 
-<img src="./assets/stat_card.svg" alt="Project stats: Llama 4 Maverick, 14 ResNet50 Models, 10 Visualizations, 14.5B Token Medical RAG" width="100%"/>
 
 # Final Year Project | Aetherion VZ Alpha 400B
 ### AI-Driven Clinical Decision Support Interface — B.Eng Computer Engineering (Honours), APU Malaysia
