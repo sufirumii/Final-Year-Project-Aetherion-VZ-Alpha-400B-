@@ -1,5 +1,6 @@
 <div align="center">
 
+<img width="3750" height="937" alt="banner" src="https://github.com/user-attachments/assets/05ba3e24-8838-4194-9ed8-5d20d39c7149" />
 
 
 # Final Year Project | Aetherion VZ Alpha 400B
