@@ -2,14 +2,10 @@
 
 <img width="4375" height="1312" alt="stat_card" src="https://github.com/user-attachments/assets/80ab838d-40a6-48a0-9dc7-ce9c4e7d0856" />
 
+<img src="./assets/stat_card.svg" alt="Project stats: Llama 4 Maverick, 14 ResNet50 Models, 10 Visualizations, 14.5B Token Medical RAG" width="100%"/>
 
 # Final Year Project | Aetherion VZ Alpha 400B
 ### AI-Driven Clinical Decision Support Interface — B.Eng Computer Engineering (Honours), APU Malaysia
-
-![Status](https://img.shields.io/badge/status-archived%20prototype-informational)
-![Domain](https://img.shields.io/badge/domain-Medical%20AI-00bfff)
-![Models](https://img.shields.io/badge/ResNet50%20classifiers-14-00ff9d)
-![Backend](https://img.shields.io/badge/backend-Flask%20%7C%20PyTorch%20%7C%20OpenCV-ff00ff)
 
 </div>
 
@@ -23,9 +19,7 @@ The interface itself leans into an immersive "quantum medical intelligence" visu
 
 ---
 
-## The Models Behind It
-
-### Language Model — Llama 4 Maverick (Mixture-of-Experts)
+## Large Language Model Integration
 
 The conversational reasoning layer runs on **Llama 4 Maverick**, Meta's natively multimodal model built on a **Mixture-of-Experts (MoE)** architecture. Unlike a dense transformer — where every parameter is used for every token — Maverick routes each token through only a small slice of its total network:
 
@@ -36,13 +30,13 @@ The conversational reasoning layer runs on **Llama 4 Maverick**, Meta's natively
 
 For this project, Maverick replaced an earlier, locally-hosted **GPT4All** reasoning model that had been used for on-device inference during initial development, once API access to a stronger model became practical.
 
-### Vision Backbone — ResNet50
-
-All 14 diagnostic classifiers are built on **ResNet50**, a 50-layer convolutional network from the ResNet ("Residual Network") family. Its defining feature is the **residual/skip connection** — each block learns a residual function relative to its input rather than an unreferenced mapping, which lets gradients flow through very deep networks during backpropagation without vanishing. This is what makes it practical to train a network this deep at all, and is a large part of why ResNet50 remains a standard transfer-learning backbone for medical imaging tasks with comparatively small, specialized datasets — exactly the situation with each of the 14 datasets below.
-
 ---
 
-## Multi-Disease Classification Engine
+## Disease Models Integrated
+
+### CNN Model for Vision : ResNet50
+
+All 14 diagnostic classifiers are built on **ResNet50**, a 50-layer convolutional network from the ResNet ("Residual Network") family. Its defining feature is the **residual/skip connection** — each block learns a residual function relative to its input rather than an unreferenced mapping, which lets gradients flow through very deep networks during backpropagation without vanishing. This is what makes it practical to train a network this deep at all, and is a large part of why ResNet50 remains a standard transfer-learning backbone for medical imaging tasks with comparatively small, specialized datasets — exactly the situation with each of the 14 datasets below.
 
 14 independently fine-tuned ResNet50 models, each trained on a distinct real-world medical imaging dataset, served through a unified Flask inference API with dynamic model-switching:
 
@@ -67,11 +61,13 @@ Each classifier is paired with an image analysis dashboard (edge detection, hist
 
 ---
 
-## Retrieval-Grounded Medical Assistant
+## Retrieval Augmented Generation
 
-The assistant's knowledge layer follows a **traditional retrieve-then-generate RAG architecture** — a single-pass pipeline of embed query → retrieve top-k passages → pass them to the LLM as context, without the re-ranking, query-rewriting, or agentic multi-hop retrieval found in more advanced RAG designs. This was an intentional and honest limitation at the time: RAG system design was still new territory for me during this project, and the priority was getting a working grounded pipeline shipped end-to-end.
+The medical assistant is grounded using **Retrieval Augmented Generation (RAG)** — rather than relying purely on the language model's parametric knowledge, relevant medical passages are retrieved from a dedicated corpus at query time and injected into the prompt as context before the model generates a response. This keeps answers anchored to real biomedical literature instead of the model's own recall.
 
-- **Embedding model**: [`sentence-transformers/all-MiniLM-L6-v2`](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) — a distilled, 6-layer, ~22.7M-parameter sentence-transformer that maps text into a 384-dimensional dense vector space. It was used to embed the PubMed-derived corpus into a vector index for semantic retrieval, chosen for its strong speed-to-quality tradeoff at the scale this project needed.
+The specific architecture used is what's commonly called **Naive RAG**: a single-pass pipeline of *embed query → retrieve top-k passages by similarity → pass them to the LLM as context → generate*. It does not include the re-ranking, query rewriting, or agentic multi-hop retrieval found in more advanced RAG designs. This was an intentional and honest limitation at the time — RAG system design was still new territory for me during this project, and the priority was getting a working, grounded pipeline shipped end-to-end.
+
+- **Embedding model**: [`sentence-transformers/all-MiniLM-L6-v2`](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2) — a distilled, 6-layer, ~22.7M-parameter sentence-transformer that maps text into a 384-dimensional dense vector space. It was used to embed the PubMed-derived corpus into a vector index, and the same model embeds each incoming query so it can be compared against that index by cosine similarity for retrieval.
 - **Corpus sources**: an aggregate biomedical/clinical QA corpus assembled from open sources — **PubMed**, **BioASQ**, **ReasonMed**, **ChatDoctor** / **ChatDoctor-110k**, **MIRIAD-5.8M**, and **Lavita**.
 - **Generation model**: **Llama 4 Maverick** (see architecture notes above), preceded during early development by a locally-hosted **GPT4All** model.
 
