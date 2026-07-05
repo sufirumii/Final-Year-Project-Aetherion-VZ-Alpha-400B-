@@ -2,6 +2,8 @@
 
 <img width="3750" height="937" alt="banner" src="https://github.com/user-attachments/assets/05ba3e24-8838-4194-9ed8-5d20d39c7149" />
 
+<img src="./assets/stat_card.svg" alt="Project stats: Llama 4 Maverick, 14 ResNet50 Models, 10 Visualizations, 14.5B Token Medical RAG" width="100%"/>
+
 # Final Year Project | Aetherion VZ Alpha 400B
 ### AI-Driven Clinical Decision Support Interface — B.Eng Computer Engineering (Honours), APU Malaysia
 
@@ -102,25 +104,28 @@ A live medical-news feed, simulated vitals monitoring, and a dual image + graph 
 
 ## Recognition
 
-<p align="center">
+<table>
+<tr>
+<td width="50%" align="center">
 <img src="https://github.com/user-attachments/assets/ca8724e4-6c3c-424f-bb86-a585e0e1349a" width="100%"/>
-<br/><sub>Aetherion — main interface</sub>
-</p>
-
-<p align="center">
+<sub>Aetherion — main interface</sub>
+</td>
+<td width="50%" align="center">
 <img src="https://github.com/user-attachments/assets/ad67296b-e4de-4e81-962b-703ecfb0d4ca" width="100%"/>
-<br/><sub>Disease Classifier Interface</sub>
-</p>
-
-<p align="center">
+<sub>Disease Classifier Interface</sub>
+</td>
+</tr>
+<tr>
+<td width="50%" align="center">
 <img src="https://github.com/user-attachments/assets/70d5d785-7532-492b-b97e-47d4e8accbb1" width="100%"/>
-<br/><sub>Live demonstration to Malaysia's Deputy Minister of Health</sub>
-</p>
-
-<p align="center">
+<sub>Live demonstration to Malaysia's Deputy Minister of Health</sub>
+</td>
+<td width="50%" align="center">
 <img src="https://github.com/user-attachments/assets/dc6298cd-e0cb-409e-b954-28ffe0002f8f" width="100%"/>
-<br/><sub>APU named official consultant to MOH's Health Performance Unit</sub>
-</p>
+<sub>APU named official consultant to MOH's Health Performance Unit</sub>
+</td>
+</tr>
+</table>
 
 This project was demonstrated live to Malaysia's **Deputy Minister of Health**, coinciding with **APU being named an official consultant to the Ministry of Health's Health Performance Unit**, spearheading national HealthTech advancement initiatives.
 
